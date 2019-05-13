@@ -8,7 +8,7 @@ Proof-of-concept for a recipe generator to fulfill the CodeFellows 301 final pro
 * Michael Chapman
 
 # Description of Project
-A user-friendly recipe search application.
+A mobile-first server-side rendered interactive site for looking up recipes.
 
 # Version 1.0.0
 # Libraries and Frameworks
@@ -24,8 +24,8 @@ A user-friendly recipe search application.
 # API Library
 TheMealDB (themealdb.com)
 
-# Domain
-A mobile-first server-side rendered interactive site for looking up recipes.
+# Problem Domain
+To build a website that allows users to search for, edit save and delete recipes to be viewed and used over time.
 
 # Licensing/Attribution
 // POSSIBLE LATER USAGE
