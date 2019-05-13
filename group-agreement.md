@@ -46,12 +46,12 @@ How will you ensure that you are creating a safe environment where everyone feel
 # User Installation Instructions to Work With Codebase
 
 Npm install:
-*dotenv
-*ejs
-*pg
-*express
-*method-override
-*superagent
+* dotenv
+* ejs
+* pg
+* express
+* method-override
+* superagent
 
 # Api Endpoint With Sample Response
 
