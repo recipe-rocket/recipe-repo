@@ -64,6 +64,11 @@ Npm install:
 * method-override
 * superagent
 
+ENV Setup:
+* PORT=________
+* DATABASE_URL=____________
+* RECIPE_API=_____________
+
 # Api Endpoint With Sample Response
 
 Search meal by name
