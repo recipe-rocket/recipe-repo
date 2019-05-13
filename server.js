@@ -28,8 +28,13 @@ let loadHome = (request, response) => {
   response.render('index'); 
 }
 
+let loadAbout = (request, response) => {
+  response.render('pages/about'); 
+}
+
 //Routes
 app.get('/', loadHome);
+app.get('/about', loadAbout);
 
 // Error Catcher
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
