@@ -38,7 +38,7 @@ How will you communicate after hours and on the weekend?
 - Using slack private message for group Use phone numbers as a backup or in case of emergency.
 
 What is your strategy for ensuring everyone's voices are heard? 
--Ask questions: this benefits the individual and the group. Keep an eye out on each other.
+- Ask questions: this benefits the individual and the group. Keep an eye out on each other.
 
 How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up? 
--Empathetically consider each other. Give gentle feedback. Welcome the feedback.
+- Empathetically consider each other. Give gentle feedback. Welcome the feedback.
