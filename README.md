@@ -3,23 +3,23 @@
 Proof-of-concept for a recipe generator to fulfill the CodeFellows 301 final project.
 
 # Group Members
-Chloie Parsons
-Jeff Lawrence
-Michael Chapman
+* Chloie Parsons
+* Jeff Lawrence
+* Michael Chapman
 
 # Description of Project
 Piano simulator where keys on keyboard play notes when pressed.
 
 # Version 1.0.0
 # Libraries and Frameworks
-eslint
-jquery
-ejs
-express
-superagent
-pg (postgres)
-method-override
-dotenv
+* eslint
+* jquery
+* ejs
+* express
+* superagent
+* pg (postgres)
+* method-override
+* dotenv
 
 # API Library
 TheMealDB (themealdb.com)
