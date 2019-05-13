@@ -58,7 +58,7 @@ superagent
 Search meal by name
 https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
 
-
+```
 {
   "meals": [
     {
@@ -116,11 +116,11 @@ https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
     }
   ]
 }
-
+```
 Filter by main ingredient
 https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
 
-
+```
 {
   "meals": [
     {
@@ -155,5 +155,5 @@ https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
     }
   ]
 }
-
+```
 # Database Schema
