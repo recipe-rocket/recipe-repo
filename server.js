@@ -14,3 +14,25 @@ const PORT = process.env.PORT || 3000;
 // App Middleware
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
+
+//DataBase Setup
+const client = new pg.Client(process.env.DATABASE_URL);
+client.connect();
+client.on('error', err => console.error(err));
+
+// Set view engine for server side templating
+app.set('view engine', 'ejs');
+
+//Handlers
+let loadHome = (request, response) => {
+  response.render('index'); 
+}
+
+//Routes
+app.get('/', loadHome);
+
+// Error Catcher
+app.get('*', (request, response) => response.status(404).send('This route does not exist'));
+
+//Listener
+app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
