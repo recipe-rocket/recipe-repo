@@ -8,7 +8,7 @@ Proof-of-concept for a recipe generator to fulfill the CodeFellows 301 final pro
 * Michael Chapman
 
 # Description of Project
-Piano simulator where keys on keyboard play notes when pressed.
+A user-friendly recipe search application.
 
 # Version 1.0.0
 # Libraries and Frameworks
