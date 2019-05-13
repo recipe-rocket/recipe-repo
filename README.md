@@ -31,19 +31,19 @@ A mobile-first server-side rendered interactive site for looking up recipes.
 // POSSIBLE LATER USAGE
 
 # MVP1:
-Group Title
-About Us Page
-3 Photos & Elevator Pitches
-Nav Bar
-View Saved Recipes on Index
-Search For New Recipes
-View Searched Recipes
-Render Form on Search Recipes
-Save/Update/Delete Recipes
-View Single Recipe
-Click YouTube Link
-Add custom fonts
-Smokin' hot CSS
+* Group Title
+* About Us Page
+* 3 Photos & Elevator Pitches
+* Nav Bar
+* View Saved Recipes on Index
+* Search For New Recipes
+* View Searched Recipes
+* Render Form on Search Recipes
+* Save/Update/Delete Recipes
+* View Single Recipe
+* Click YouTube Link
+* Add custom fonts
+* Smokin' hot CSS
 
 # Stretch Goals
 # MVP 2
