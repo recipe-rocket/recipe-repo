@@ -74,11 +74,29 @@ let saveRecipe = (request, response) => {
   client.query(SQL1, values1)
     .then(result => {
       let id = result.rows[0].id;
-      let SQL2 = 'INSERT INTO recipes(name, instructions, ingredients, image_url, youTube_link, cookbooks_id) VALUES ($1, $2, $3, $4, $5, $6);';
+      let SQL2 = 'INSERT INTO recipes(name, instructions, ingredients, image, youtubeLink, cookbooks_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;';
       let values2 = [name, instructions, ingredients, image, youtubeLink, id];
 
-      client.query(SQL2, values2);
-    });
+      return client.query(SQL2, values2);
+    })
+    .then (result => {
+      response.redirect(`/detail/${result.rows[0].id}`);
+    })
+    .catch(() => errorMessage());
+};
+
+let renderDetail = (request, response) => {
+  console.log('aye');
+  console.log(request.params);
+  let SQL = 'SELECT * FROM recipes WHERE id=$1;';
+
+  let values = [request.params.id];
+
+  return client.query(SQL, values)
+    .then(results => {
+      response.render('pages/detail', {recipes: results.rows});
+    })
+    .catch(() => errorMessage());
 };
 
 let loadAbout = (request, response) => {
@@ -88,6 +106,7 @@ let loadAbout = (request, response) => {
 //Routes
 app.get('/', loadHome);
 app.get('/search', loadSearch);
+app.get('/detail/:id', renderDetail);
 app.post('/save', saveRecipe);
 app.get('/about', loadAbout);
 
