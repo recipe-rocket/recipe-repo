@@ -73,13 +73,12 @@ let saveRecipe = (request, response) => {
 
   client.query(SQL1, values1)
     .then(result => {
-      let id = result.id;
+      let id = result.rows[0].id;
+      let SQL2 = 'INSERT INTO recipes(name, instructions, ingredients, image_url, youTube_link, cookbooks_id) VALUES ($1, $2, $3, $4, $5, $6);';
+      let values2 = [name, instructions, ingredients, image, youtubeLink, id];
+
+      client.query(SQL2, values2);
     });
-
-  // let SQL2 = 'INSERT INTO recipes(name, instructions, ingredients, image, youtubeLink, cookbooks_id) VALUES ($1, $2, $3, $4, $5, $6);';
-  // let values2 = [name, instructions, ingredients, image, youtubeLink, id];
-
-  // return client.query(SQL2, values2);
 };
 
 let loadAbout = (request, response) => {

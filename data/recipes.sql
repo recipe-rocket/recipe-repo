@@ -9,6 +9,7 @@ CREATE TABLE cookbooks (
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100),
+  ingredients TEXT,
   instructions TEXT,
   image_url TEXT,
   youTube_link TEXT,
