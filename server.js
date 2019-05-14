@@ -118,24 +118,17 @@ let loadAbout = (request, response) => {
 };
 
 let updateDetail = (request, response) => {
-  // console.log(request.body);
   let {name, instructions, ingredients, cookbook, cookbookID} = request.body;
   let SQL1 = 'UPDATE cookbooks SET nameCookbook=$1 WHERE id=$2;';
   let values1 = [cookbook, cookbookID];
-  // console.log(cookbook);
   return client.query(SQL1, values1)
-    .then(result => {
-      console.log(result);
-      // let id = result.rows[0].id;
+    .then(() => {
       let SQL = 'UPDATE recipes SET name=$1, instructions=$2, ingredients=$3, cookbooks_id=$4 WHERE id=$5;';
       let values = [name, instructions, ingredients, cookbookID, request.params.id];
-      // console.log(cookbookID);
 
       return client.query(SQL, values);
     })
-    .then(results => {
-      console.log(results + 'hhlkhlkhlhl');
-      // let ingredients = results.rows[0].ingredients.split(',');
+    .then(() => {
       response.redirect(`/detail/${request.params.id}`);
     })
     .catch(() => errorMessage());
