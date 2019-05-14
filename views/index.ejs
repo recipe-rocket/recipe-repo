@@ -2,7 +2,16 @@
 <html lang="en">
   <%- include('./partials/head') %>
 <body>
-  "Marco Polo"
   <%- include('./partials/nav') %>
+  <%- include('./partials/title') %>
+
+  <main class="search-view-main">
+      <% recipes.forEach(recipe => { %>
+        <section class="recipe">
+          <%- include('./partials/recipe', {recipes: recipe}) %>
+          <a href="/detail/<%=recipe.id%>"><button>Show Details!</button></a>
+        </section>
+      <% }) %>
+    </main>
 </body>
 </html>
