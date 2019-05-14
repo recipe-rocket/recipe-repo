@@ -38,7 +38,7 @@ function Recipe(data) {
 
   this.name = data.strMeal;
   this.instructions = data.strInstructions;
-  this.ingredients = amountArr.join(', ');
+  this.ingredients = amountArr;
   this.image = data.strMealThumb;
   this.youtubeLink = data.strYoutube;
   this.cookbook = 'general';
@@ -46,27 +46,28 @@ function Recipe(data) {
 
 //Handlers
 let loadHome = (request, response) => {
-  response.render('index'); 
+  response.render('index');
 };
 
 let loadSearch = (request, response) => {
   // get request query
   let query = request.query.search;
-  let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
+  let url = `https://www.themealdb.com/api/json/v1/${process.env.RECIPE_API}/search.php?s=${query}`;
   // send API request
   superagent.get(url)
     .then(result => {
-      result.body.meals.forEach(meal => {
-        let recipe = new Recipe(meal);
-        console.log(recipe);
+      return result.body.meals.map(meal => {
+        return new Recipe(meal);
       });
-    });
-  // get results
-  // render search.ejs with response body
+    })
+    .then(results => {
+      response.render('pages/search', {recipes: results});
+    })
+    .catch(() => errorMessage());
 };
 
 let loadAbout = (request, response) => {
-  response.render('pages/about'); 
+  response.render('pages/about');
 };
 
 //Routes
@@ -76,6 +77,14 @@ app.get('/about', loadAbout);
 
 // Error Catcher
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
+
+let errorMessage = () => {
+  let errorObj = {
+    status: 500,
+    responseText: 'Sorry something went wrong',
+  };
+  return errorObj;
+};
 
 //Listener
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
