@@ -3,3 +3,39 @@
   flex-direction: row;
 }
 
+.search-view-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.recipe {
+  width: 75%;
+  height: auto;
+  background-color: grey;
+  margin-top: 50px;
+  align-self: center;
+}
+
+.recipe-data {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.recipe-data img {
+  width: 20%;
+  height: 20%;
+  margin-right: 15px;
+}
+
+.recipe-data article h2 {
+  font-size: 2em;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.recipe-data article p {
+}
+

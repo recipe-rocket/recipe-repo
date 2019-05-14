@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+<%- include('../partials/head'); %>
 <body>
-  <% recipes.forEach(recipe => { %>
-    <%- include('../partials/recipe', {recipes: recipe}) %>
-  <% }) %>
+  <main class="search-view-main">
+    <% recipes.forEach(recipe => { %>
+      <section class="recipe">
+        <%- include('../partials/recipe', {recipes: recipe}) %>
+      </section>
+    <% }) %>
+  </main>
 </body>
 </html>
