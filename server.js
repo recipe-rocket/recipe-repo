@@ -15,6 +15,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    console.log(req.body._method);
+    var method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
+
 //DataBase Setup
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
@@ -73,7 +83,7 @@ let loadSearch = (request, response) => {
 
 let saveRecipe = (request, response) => {
   let { name, instructions, ingredients, image, youtubeLink, cookbook} = request.body;
-  let SQL1 = 'INSERT INTO cookbooks(name) VALUES ($1) RETURNING id;';
+  let SQL1 = 'INSERT INTO cookbooks(nameCookbook) VALUES ($1) RETURNING id;';
   let values1 = [cookbook];
 
   client.query(SQL1, values1)
@@ -91,7 +101,7 @@ let saveRecipe = (request, response) => {
 };
 
 let renderDetail = (request, response) => {
-  let SQL = 'SELECT * FROM recipes WHERE id=$1;';
+  let SQL = 'SELECT * FROM recipes JOIN cookbooks ON cookbooks.id=recipes.cookbooks_id WHERE recipes.id=$1;';
 
   let values = [request.params.id];
 
@@ -107,12 +117,37 @@ let loadAbout = (request, response) => {
   response.render('pages/about');
 };
 
+let updateDetail = (request, response) => {
+  // console.log(request.body);
+  let {name, instructions, ingredients, cookbook} = request.body;
+  let SQL1 = 'UPDATE cookbooks(nameCookbook) VALUES ($1) RETURNING id;';
+  let values1 = [cookbook];
+
+  return client.query(SQL1, values1)
+    .then(result => {
+      let id = result.rows[0].id;
+      let SQL = 'UPDATE recipes SET name=$1, instructions=$2, ingredients=$3 WHERE id=$4;';
+      let values = [name, instructions, ingredients, id];
+      // console.log(cookbookID);
+
+      return client.query(SQL, values);
+    })
+    .then(results => {
+      console.log(results);
+      let ingredients = results.rows[0].ingredients.split(',');
+      response.redirect(`/detail/${request.params.id}`, {recipes: results.rows, ingredients: ingredients});
+    })
+    .catch(() => errorMessage());
+};
+
 //Routes
 app.get('/', loadHome);
 app.get('/search', loadSearch);
 app.get('/detail/:id', renderDetail);
+app.put('/update/:id', updateDetail);
 app.post('/save', saveRecipe);
 app.get('/about', loadAbout);
+
 
 // Error Catcher
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
