@@ -134,11 +134,28 @@ let updateDetail = (request, response) => {
     .catch(() => errorMessage());
 };
 
+let deleteRecipe = (request, response) => {
+  let SQL = 'DELETE FROM recipes WHERE id=$1;';
+  let values = [request.params.id];
+
+
+  return client.query(SQL, values)
+    .then(() => {
+      let SQL1 = 'DELETE FROM cookbooks WHERE id=$1;';
+      let values1 = [request.body.cookbookID];
+
+      client.query(SQL1, values1)
+        .then(response.redirect('/'))
+        .catch(() => errorMessage());
+    });
+};
+
 //Routes
 app.get('/', loadHome);
 app.get('/search', loadSearch);
 app.get('/detail/:id', renderDetail);
 app.put('/update/:id', updateDetail);
+app.delete('/delete/:id', deleteRecipe);
 app.post('/save', saveRecipe);
 app.get('/about', loadAbout);
 
@@ -146,12 +163,8 @@ app.get('/about', loadAbout);
 // Error Catcher
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 
-let errorMessage = () => {
-  let errorObj = {
-    status: 500,
-    responseText: 'Sorry something went wrong',
-  };
-  return errorObj;
+let errorMessage = (error, response) => {
+  response.render('pages/error', {error: 'OH NO!'});
 };
 
 //Listener
