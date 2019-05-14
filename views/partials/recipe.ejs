@@ -1,0 +1,7 @@
+<section class="recipe-data">
+  <img src="<%= recipes.image %>" />
+  <article>
+    <h2><%= recipes.name %></h2>
+    <p><%- `${recipes.instructions.slice(0, 400)}...` %></p>
+  </article>
+</section>

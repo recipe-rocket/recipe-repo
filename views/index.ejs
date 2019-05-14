@@ -4,5 +4,14 @@
 <body>
   "Marco Polo"
   <%- include('./partials/nav') %>
+
+  <main class="search-view-main">
+      <% recipes.forEach(recipe => { %>
+        <section class="recipe">
+          <%- include('./partials/recipe', {recipes: recipe}) %>
+          <a href="/detail/<%=recipe.id%>"><button>Show Details!</button></a>
+        </section>
+      <% }) %>
+    </main>
 </body>
 </html>
