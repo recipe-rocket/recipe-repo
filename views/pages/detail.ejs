@@ -2,9 +2,10 @@
 <html lang="en">
     <%- include('../partials/head'); %>
 <body>
-    <% recipes.forEach(recipe => { %>
-      <section class="recipe">
-        <%- include('../partials/recipe', {recipes: recipe}) %>
-    <% }) %>
+  <%- include('../partials/nav'); %>
+  <% recipes.forEach(recipe => { %>
+    <section class="recipe">
+      <%- include('../partials/recipe', {recipes: recipe}) %>
+  <% }) %>
 </body>
 </html>

@@ -46,7 +46,12 @@ function Recipe(data) {
 
 //Handlers
 let loadHome = (request, response) => {
-  response.render('index');
+  let SQL = 'SELECT * FROM recipes;';
+
+  return client.query(SQL)
+    .then(results => {
+      response.render('index', {recipes: results.rows});
+    });
 };
 
 let loadSearch = (request, response) => {
@@ -86,8 +91,6 @@ let saveRecipe = (request, response) => {
 };
 
 let renderDetail = (request, response) => {
-  console.log('aye');
-  console.log(request.params);
   let SQL = 'SELECT * FROM recipes WHERE id=$1;';
 
   let values = [request.params.id];
