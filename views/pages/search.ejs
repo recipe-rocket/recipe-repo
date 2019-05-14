@@ -6,6 +6,16 @@
     <% recipes.forEach(recipe => { %>
       <section class="recipe">
         <%- include('../partials/recipe', {recipes: recipe}) %>
+
+        <form action="/save" method="post"> 
+          <input class="hidden" type="text" name="name" value="<%= recipe.name %>" required>
+          <input class="hidden" type="text" name="ingredients" value="<%= recipe.ingredients %>" required>
+          <input class="hidden" type="text" name="instructions" value="<%= recipe.instructions %>" required>
+          <input class="hidden" type="text" name="image" value="<%= recipe.image %>" required>
+          <input class="hidden" type="text" name="youtubeLink" value="<%= recipe.youtubeLink %>" required>
+          <input class="hidden" type="text" name="cookbook" value="<%= recipe.cookbook %>" required>
+          <button type="submit">Save Recipe!</button>
+        </form>
       </section>
     <% }) %>
   </main>

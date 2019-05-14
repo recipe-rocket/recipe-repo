@@ -66,6 +66,10 @@ let loadSearch = (request, response) => {
     .catch(() => errorMessage());
 };
 
+let saveRecipe = (request, response) => {
+  console.log('hello');
+};
+
 let loadAbout = (request, response) => {
   response.render('pages/about');
 };
@@ -73,6 +77,7 @@ let loadAbout = (request, response) => {
 //Routes
 app.get('/', loadHome);
 app.get('/search', loadSearch);
+app.post('/save', saveRecipe);
 app.get('/about', loadAbout);
 
 // Error Catcher
