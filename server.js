@@ -15,6 +15,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    console.log(req.body._method);
+    var method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
+
 //DataBase Setup
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
@@ -50,7 +60,7 @@ let loadHome = (request, response) => {
 
   return client.query(SQL)
     .then(results => {
-      response.render('index', {recipes: results.rows});
+      response.render('index', {recipes: results.rows, title: 'Your Cookbook Launchpad'});
     });
 };
 
@@ -66,14 +76,14 @@ let loadSearch = (request, response) => {
       });
     })
     .then(results => {
-      response.render('pages/search', {recipes: results});
+      response.render('pages/search', {recipes: results, title: `Search Results: ${query}`});
     })
     .catch(() => errorMessage());
 };
 
 let saveRecipe = (request, response) => {
   let { name, instructions, ingredients, image, youtubeLink, cookbook} = request.body;
-  let SQL1 = 'INSERT INTO cookbooks(name) VALUES ($1) RETURNING id;';
+  let SQL1 = 'INSERT INTO cookbooks(nameCookbook) VALUES ($1) RETURNING id;';
   let values1 = [cookbook];
 
   client.query(SQL1, values1)
@@ -91,38 +101,70 @@ let saveRecipe = (request, response) => {
 };
 
 let renderDetail = (request, response) => {
-  let SQL = 'SELECT * FROM recipes WHERE id=$1;';
+  let SQL = 'SELECT * FROM recipes JOIN cookbooks ON cookbooks.id=recipes.cookbooks_id WHERE recipes.id=$1;';
 
   let values = [request.params.id];
 
   return client.query(SQL, values)
     .then(results => {
       let ingredients = results.rows[0].ingredients.split(',');
-      response.render('pages/detail', {recipes: results.rows, ingredients: ingredients});
+      response.render('pages/detail', {recipes: results.rows, ingredients: ingredients, title: `Details for: ${results.rows[0].name}`});
     })
     .catch(() => errorMessage());
 };
 
 let loadAbout = (request, response) => {
-  response.render('pages/about');
+  response.render('pages/about', {title: 'About Us!'});
+};
+
+let updateDetail = (request, response) => {
+  let {name, instructions, ingredients, cookbook, cookbookID} = request.body;
+  let SQL1 = 'UPDATE cookbooks SET nameCookbook=$1 WHERE id=$2;';
+  let values1 = [cookbook, cookbookID];
+  return client.query(SQL1, values1)
+    .then(() => {
+      let SQL = 'UPDATE recipes SET name=$1, instructions=$2, ingredients=$3, cookbooks_id=$4 WHERE id=$5;';
+      let values = [name, instructions, ingredients, cookbookID, request.params.id];
+
+      return client.query(SQL, values);
+    })
+    .then(() => {
+      response.redirect(`/detail/${request.params.id}`);
+    })
+    .catch(() => errorMessage());
+};
+
+let deleteRecipe = (request, response) => {
+  let SQL = 'DELETE FROM recipes WHERE id=$1;';
+  let values = [request.params.id];
+
+
+  return client.query(SQL, values)
+    .then(() => {
+      let SQL1 = 'DELETE FROM cookbooks WHERE id=$1;';
+      let values1 = [request.body.cookbookID];
+
+      client.query(SQL1, values1)
+        .then(response.redirect('/'))
+        .catch(() => errorMessage());
+    });
 };
 
 //Routes
 app.get('/', loadHome);
 app.get('/search', loadSearch);
 app.get('/detail/:id', renderDetail);
+app.put('/update/:id', updateDetail);
+app.delete('/delete/:id', deleteRecipe);
 app.post('/save', saveRecipe);
 app.get('/about', loadAbout);
+
 
 // Error Catcher
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 
-let errorMessage = () => {
-  let errorObj = {
-    status: 500,
-    responseText: 'Sorry something went wrong',
-  };
-  return errorObj;
+let errorMessage = (error, response) => {
+  response.render('pages/error', {error: 'OH NO!'});
 };
 
 //Listener

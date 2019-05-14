@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS cookbooks;
 
 CREATE TABLE cookbooks (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(100)
+  nameCookbook VARCHAR(100)
 );
 
 CREATE TABLE recipes (
