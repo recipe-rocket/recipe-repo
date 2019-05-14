@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "watch": "nodemon server.js",
     "db": "psql -d recipes_app -f ./data/recipes.sql"
   },
   "author": "",
