@@ -4,8 +4,18 @@
 <body>
   <%- include('../partials/nav'); %>
   <% recipes.forEach(recipe => { %>
-    <section class="recipe">
-      <%- include('../partials/recipe', {recipes: recipe}) %>
-  <% }) %>
+    <section>
+      <h2><%= recipe.name %></h2>
+      <h3><%= recipe.cookbook %></h3>
+      <img src="<%= recipe.image %>" />
+      <a href="<%= recipe.youtubeLink %>"><p>View demo on youtube.</p></a>
+      <ul>
+        <% ingredients.forEach(ingredient => { %>
+          <li><%= ingredient %></li>
+        <% }) %>
+      </ul>
+      <p><%= recipe.instructions %></p>
+    </section>
+ <% }) %>
 </body>
 </html>

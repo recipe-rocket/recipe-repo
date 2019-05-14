@@ -97,7 +97,8 @@ let renderDetail = (request, response) => {
 
   return client.query(SQL, values)
     .then(results => {
-      response.render('pages/detail', {recipes: results.rows});
+      let ingredients = results.rows[0].ingredients.split(',');
+      response.render('pages/detail', {recipes: results.rows, ingredients: ingredients});
     })
     .catch(() => errorMessage());
 };
