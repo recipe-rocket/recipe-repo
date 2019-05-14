@@ -16,6 +16,7 @@
           <input id="instructions" class="sideForm" type="text" name="instructions" value="<%= recipes[0].instructions %>" required>
           <label for="cookbook">Cookbook</label>
           <input id="cookbook" class="sideForm" type="text" name="cookbook" value="<%= recipes[0].namecookbook %>" required>
+          <input class="hidden" type="text" name="cookbookID" value="<%= recipes[0].cookbooks_id %>">
           <button type="submit">Update Recipe!</button>
         </form>
       <a href="#"><button>Delete</button></a>
