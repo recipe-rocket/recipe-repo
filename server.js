@@ -114,7 +114,7 @@ let renderDetail = (request, response) => {
 };
 
 let loadAbout = (request, response) => {
-  response.render('pages/about');
+  response.render('pages/about', {title: 'About Us!'});
 };
 
 let updateDetail = (request, response) => {
