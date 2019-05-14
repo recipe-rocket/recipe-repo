@@ -60,7 +60,7 @@ let loadHome = (request, response) => {
 
   return client.query(SQL)
     .then(results => {
-      response.render('index', {recipes: results.rows});
+      response.render('index', {recipes: results.rows, title: 'Your Cookbook Launchpad'});
     });
 };
 
@@ -76,7 +76,7 @@ let loadSearch = (request, response) => {
       });
     })
     .then(results => {
-      response.render('pages/search', {recipes: results});
+      response.render('pages/search', {recipes: results, title: `Search Results: ${query}`});
     })
     .catch(() => errorMessage());
 };
@@ -108,7 +108,7 @@ let renderDetail = (request, response) => {
   return client.query(SQL, values)
     .then(results => {
       let ingredients = results.rows[0].ingredients.split(',');
-      response.render('pages/detail', {recipes: results.rows, ingredients: ingredients});
+      response.render('pages/detail', {recipes: results.rows, ingredients: ingredients, title: `Details for: ${results.rows[0].name}`});
     })
     .catch(() => errorMessage());
 };
