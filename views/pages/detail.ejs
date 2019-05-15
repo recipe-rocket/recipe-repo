@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head'); %>
+  <%- include('../partials/head') %>
 <body>
-  <%- include('../partials/nav'); %>
-  <%- include('../partials/title'); %>
+  <%- include('../partials/nav') %>
+  <%- include('../partials/title') %>
 
   <div id="mySidenav" class="sidenav">
       <a id="closebtn">&times;</a>
@@ -18,7 +18,7 @@
           <label for="cookbook">Cookbook</label>
           <input id="cookbook" class="sideForm" type="text" name="cookbook" value="<%= recipes[0].namecookbook %>" required>
           <input type="hidden" type="text" name="cookbookID" value="<%= recipes[0].cookbooks_id %>">
-          <button type="submit">Update Recipe!</button>
+          <button type="submit">Update Recipe</button>
         </form>
         <form class="sideNavFormDelete" action="/delete/<%-`${recipes[0].id}`%>" method="post">
           <input type="hidden" name="_method" value="delete">

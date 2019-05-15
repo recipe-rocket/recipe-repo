@@ -11,10 +11,11 @@
 }
 
 .recipe {
-  width: 75%;
+  width: 100%;
   height: auto;
-  background-color: grey;
-  margin-top: 50px;
+  background-color: #f0e5eb;
+  box-shadow: 0px 2px 9px #C7AEA5; 
+  margin-top: 25px;
   align-self: center;
 }
 
@@ -25,19 +26,55 @@
 }
 
 .recipe-data img {
-  width: 20%;
-  height: 20%;
-  margin-right: 15px;
+  width: 25%;
+  height: 25%;
+  margin-right: 10px;
+  margin-left: 7px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .recipe-data article h2 {
-  font-size: 2em;
+  font-size: 1.25em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 5px;
   margin-bottom: 10px;
+  margin-right: 7px;
+  line-height: 110%;
+}
+
+p {
+  font-size: .8em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 120%;
+  margin-right: 7px;
+}
+
+.indexButtons{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+#indexDetailBtn{
+  background-color: #499FA4;
+  width: 94%;
+  height: 82%;
+  margin-bottom: 7px;
+  margin-left: 7px;
+  color: white;
 }
 
 .hidden {
   display:none;
+}
+
+.youTube {
+  width: 89%;
+  height: 70%; 
 }
 
 /* Inspired by w3 Schools - https://www.w3schools.com/howto/howto_js_sidenav.asp */
@@ -75,5 +112,29 @@
   margin-left: 50px;
 }
 
+.navBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  padding-top: 5px;
+  background-color: #c7aea5;
+  align-items: center;
+  height: 50px; 
+}
 
+.navBar form {
+  display:flex;
+  align-items: center;
+  padding-top: 5px;
+}
 
+.navBar form input {
+  height: 1.5em;
+}
+
+.navBar form a img {
+  margin-top: -5px;
+  margin-left: 25px;
+  
+}

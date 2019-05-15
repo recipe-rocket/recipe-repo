@@ -1,0 +1,12 @@
+h1 {
+  font-family: 'Averia Serif Libre', cursive;
+  font-size: 2em;
+  text-align: center;
+}
+
+#titleSection {
+
+  background-color: rgb(218, 218, 221);
+  padding-top: .7em;
+  padding-bottom: .7em;
+}
