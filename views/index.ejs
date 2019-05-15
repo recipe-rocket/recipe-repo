@@ -9,7 +9,8 @@
       <% recipes.forEach(recipe => { %>
         <section class="recipe">
           <%- include('./partials/recipe', {recipes: recipe}) %>
-          <a href="/detail/<%=recipe.id%>"><button>Show Details!</button></a>
+          <a href="/detail/<%=recipe.id%>"><button>Show Details</button></a>
+          <a href="<%= recipe.youtubelink %>"><p>View demo on YouTube</p></a>
         </section>
       <% }) %>
     </main>
