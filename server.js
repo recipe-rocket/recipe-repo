@@ -60,7 +60,7 @@ let loadHome = (request, response) => {
 
   return client.query(SQL)
     .then(results => {
-      response.render('index', {recipes: results.rows, title: 'Your Cookbook Launchpad'});
+      response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad'});
     });
 };
 
