@@ -1,11 +1,12 @@
 {
   "name": "301-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proof-of-concept for a recipe generator to fulfill the CodeFellows 301 final project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
     "db": "psql -d recipes_app -f ./data/recipes.sql"
   },
   "author": "",
@@ -17,5 +18,14 @@
     "method-override": "^3.0.0",
     "pg": "^7.11.0",
     "superagent": "^5.0.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/recipe-rocket/recipe-repo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/recipe-rocket/recipe-repo/issues"
+  },
+  "homepage": "https://github.com/recipe-rocket/recipe-repo#readme"
 }
