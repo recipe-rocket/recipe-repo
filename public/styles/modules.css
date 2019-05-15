@@ -14,8 +14,8 @@
   width: 100%;
   height: auto;
   background-color: #f0e5eb;
-  box-shadow: 0px 2px 7px #C7AEA5; 
-  margin-top: 15px;
+  box-shadow: 0px 2px 9px #C7AEA5; 
+  margin-top: 25px;
   align-self: center;
 }
 
@@ -110,4 +110,31 @@ p {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  padding-top: 5px;
+  background-color: #c7aea5;
+  align-items: center;
+  height: 50px; 
+}
+
+.navBar form {
+  display:flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.navBar form input {
+  height: 1.5em;
+}
+
+.navBar form a img {
+  margin-top: -5px;
+  margin-left: 25px;
+  
 }
