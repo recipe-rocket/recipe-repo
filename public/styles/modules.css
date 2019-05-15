@@ -252,3 +252,20 @@ p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 140%;
 }
+
+header {
+  background-color: #ec926f;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 65px;
+}
+
+header img {
+  margin-left: 25px;
+}
+
+header h1 {
+  margin-left: 35px;
+}
