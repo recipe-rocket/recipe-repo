@@ -150,3 +150,66 @@ p {
   margin-left: 7px;
   color: white;
 }
+
+#recipeSection {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#recipeSection h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  align-self: center;
+}
+
+#recipeSection h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+  align-self: center;
+  margin-top: 6px;
+}
+
+#recipeSection img {
+  width: 90%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  height: auto;
+  align-self: center;
+}
+
+#youtube {
+  width: 80%;
+  height: auto;
+}
+
+#openBtn {
+  margin-left: 15px;
+}
+
+#detailBtns {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#ingredientsList {
+  list-style-type: disc;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+#ingredientsList li {
+  margin-top: 5px;
+}
+
+#recipeSection p {
+  margin: 10px 8px 10px 8px;
+  font-size: .9em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 140%;
+}
