@@ -4,4 +4,9 @@
 
 body {
   background-color: #f8f9f9;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
 }

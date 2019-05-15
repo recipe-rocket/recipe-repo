@@ -4,6 +4,7 @@
 }
 
 .search-view-main {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -274,8 +275,59 @@ header h1 {
 }
 
 #upButton {
-  float: right;
+  height: auto;
   margin-top: 25px;
-  margin-right: 25px;
+  margin-left: 85%;
+  margin-bottom: 55px;
+}
+
+#upSection {
+  height: auto;
+}
+
+.biography figure {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.biography figure img {
+  align-self: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: auto;
+  height: 300px;
+}
+
+.biography figure p {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+figcaption {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
   margin-bottom: 25px;
+}
+
+.octocat, .linkedin{
+  width: 45px;
+  height: 45px;
+}
+
+footer {
+  width: 100%;
+  height: 20px;
+  position: fixed;
+  bottom: 0;
+  background-color: #ec926f;
+  text-align: center;
+  padding-top: 5px;
+}
+
+footer p {
+  display: inline;
 }
