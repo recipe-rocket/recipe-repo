@@ -26,14 +26,14 @@
           <button type="submit">Delete Recipe:(</button>
         </form>
     </div>
-    <span id="openBtn" style="font-size:30px;cursor:pointer">&#9776; open</span>
+    <span id="openBtn" style="font-size:30px;cursor:pointer"><img src="/styles/icons/cog.svg"></span>
 
   <% recipes.forEach(recipe => { %>
     <section>
       <h2><%= recipe.name %></h2>
       <h3><%= recipe.namecookbook %></h3>
       <img src="<%= recipe.image %>" />
-      <a href="<%= recipe.youtubelink %>"><p>View demo on youtube.</p></a>
+      <a href="<%= recipe.youtubelink %>"><img class="youTube" src="/styles/icons/youtube2.svg"></a>
       <ul>
         <% ingredients.forEach(ingredient => { %>
           <li><%= ingredient %></li>
