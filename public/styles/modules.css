@@ -269,3 +269,10 @@ header img {
 header h1 {
   margin-left: 35px;
 }
+
+#upButton {
+  float: right;
+  margin-top: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
