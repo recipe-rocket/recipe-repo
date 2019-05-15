@@ -169,6 +169,12 @@ p {
   padding-top: 5px;
 }
 
+.navBar form button {
+  background-color: #c7aea5;
+  border: none;
+  outline: none;
+}
+
 .navBar form input {
   height: 1.5em;
   background-color: #f8f9f9;
