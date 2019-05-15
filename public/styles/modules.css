@@ -11,10 +11,10 @@
 }
 
 .recipe {
-  width: 75%;
+  width: 100%;
   height: auto;
-  background-color: grey;
-  margin-top: 50px;
+  background-color: #C7AEA5;
+  margin-top: 10px;
   align-self: center;
 }
 
@@ -25,15 +25,28 @@
 }
 
 .recipe-data img {
-  width: 20%;
-  height: 20%;
-  margin-right: 15px;
+  width: 25%;
+  height: 25%;
+  margin-right: 10px;
+  margin-left: 7px;
+  margin-top: 7px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .recipe-data article h2 {
-  font-size: 2em;
+  font-size: 1.25em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 5px;
   margin-bottom: 10px;
+  margin-right: 7px;
+  line-height: 110%;
+}
+
+p {
+  font-size: .8em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 120%;
+  margin-right: 7px;
 }
 
 .hidden {
