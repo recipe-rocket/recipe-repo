@@ -108,6 +108,7 @@ let renderDetail = (request, response) => {
   return client.query(SQL, values)
     .then(results => {
       let ingredients = results.rows[0].ingredients.split(',');
+      console.log(results);
       response.render('pages/detail', {recipes: results.rows, ingredients: ingredients, title: `Details for: ${results.rows[0].name}`});
     })
     .catch(() => errorMessage());
