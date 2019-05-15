@@ -198,13 +198,16 @@ p {
 #ingredientsList {
   list-style-type: disc;
   margin-left: 30px;
+  margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   align-self: center;
+  column-count: 2;
+  font-size: .9em;
 }
 
 #ingredientsList li {
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 #recipeSection p {
