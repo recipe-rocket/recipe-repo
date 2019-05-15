@@ -2,6 +2,7 @@
 <html lang="en">
   <%- include('./partials/head') %>
 <body>
+  <%- include('./partials/header') %>
   <%- include('./partials/nav') %>
   <%- include('./partials/title') %>
 
@@ -11,10 +12,12 @@
           <%- include('./partials/recipe', {recipes: recipe}) %>
           <section class="indexButtons"> 
           <a href="/detail/<%=recipe.id%>"><button id="indexDetailBtn">Show Details</button></a>
-          <a href="<%= recipe.youtubelink %>"><img class="youTube" src="styles/icons/youtube2.svg"></a>
+          <a href="<%= recipe.youtubelink %>"><img class="youTube" src="/styles/icons/youtube2.svg"></a>
           </section>
         </section>
       <% }) %>
     </main>
+    <%- include('./partials/up_button') %>
+    <%- include('./partials/footer') %>
 </body>
 </html>
