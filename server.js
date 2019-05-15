@@ -78,7 +78,7 @@ let loadSearch = (request, response) => {
     .then(results => {
       response.render('pages/search', {recipes: results, title: `Search Results: ${query}`});
     })
-    .catch(() => errorMessage());
+    .catch((error) => errorMessage(error, response));
 };
 
 let saveRecipe = (request, response) => {
@@ -97,7 +97,7 @@ let saveRecipe = (request, response) => {
     .then (result => {
       response.redirect(`/detail/${result.rows[0].id}`);
     })
-    .catch(() => errorMessage());
+    .catch((error) => errorMessage(error, response));
 };
 
 let renderDetail = (request, response) => {
@@ -110,7 +110,7 @@ let renderDetail = (request, response) => {
       let ingredients = results.rows[0].ingredients.split(',');
       response.render('pages/detail', {recipes: results.rows, ingredients: ingredients, title: `Details for: ${results.rows[0].name}`});
     })
-    .catch(() => errorMessage());
+    .catch((error) => errorMessage(error, response));
 };
 
 let loadAbout = (request, response) => {
@@ -131,7 +131,7 @@ let updateDetail = (request, response) => {
     .then(() => {
       response.redirect(`/detail/${request.params.id}`);
     })
-    .catch(() => errorMessage());
+    .catch((error) => errorMessage(error, response));
 };
 
 let deleteRecipe = (request, response) => {
@@ -146,7 +146,7 @@ let deleteRecipe = (request, response) => {
 
       client.query(SQL1, values1)
         .then(response.redirect('/'))
-        .catch(() => errorMessage());
+        .catch((error) => errorMessage(error, response));
     });
 };
 
