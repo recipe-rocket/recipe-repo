@@ -170,6 +170,9 @@ p {
 
 .navBar form input {
   height: 1.5em;
+  background-color: #f8f9f9;
+  outline: none;
+  border: none;
 }
 
 .navBar form a img {
