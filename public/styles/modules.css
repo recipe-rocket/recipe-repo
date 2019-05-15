@@ -85,10 +85,34 @@ p {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: blue;
+  background-color: #499fa4;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+}
+
+.sidenav form {
+  margin-left: 25px;
+}
+
+.sidenav form label {
+  color: white;
+}
+
+.sidenav form input {
+  width: 85%;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#instructions, #ingredients {
+  height: 100px;
+  width: 85%;
+  max-height: 150px;
+  max-width: 85%;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .sidenav a {
@@ -110,6 +134,7 @@ p {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  color:white;
 }
 
 .navBar {
@@ -197,10 +222,7 @@ p {
 
 #ingredientsList {
   list-style-type: disc;
-  margin-left: 30px;
-  margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 10px 10px 30px;
   align-self: center;
   column-count: 2;
   font-size: .9em;
