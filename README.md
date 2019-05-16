@@ -10,7 +10,7 @@ Proof-of-concept for a recipe generator to fulfill the CodeFellows 301 final pro
 # Description of Project
 A mobile-first server-side rendered interactive site for looking up recipes.
 
-# Version 1.0.0
+# Version 1.7.0
 # Libraries and Frameworks
 * eslint
 * jquery
@@ -28,10 +28,11 @@ TheMealDB (themealdb.com)
 To build a website that allows users to search for, edit save and delete recipes to be viewed and used over time.
 
 # Licensing/Attribution
-// POSSIBLE LATER USAGE
+icomoon.com (icons)
 
 # MVP1:
 * Group Title
+* Mobile-First Design
 * About Us Page
 * 3 Photos & Elevator Pitches
 * Nav Bar
@@ -47,12 +48,28 @@ To build a website that allows users to search for, edit save and delete recipes
 
 # Stretch Goals
 # MVP 2
-Search By Main Ingredient
+* Popout menu on 'Details' page
+* Added quantities to ingredients
+* Popup to confirm 'Delete'
+* Add error page for incorrect search
+* Tablet Design
+* Desktop Design
+* 'To Top' Button
 
 # MVP 3
+* Cookbook popout to select specific cookbooks
+* Select a cookbook and render its recipes
+* Delete specific cookbooks
+* Show total saved recipes
+* Click on an area for additional information (not button reliant)
 
 # MVP 4
-
+* User login / individualized account
+* Drag/drop save functionality
+* User input new recipe
+* Pagination
+* Search By Main Ingredient
+* In viewport YouTube player window
 
 # User Installation Instructions to Work With Codebase
 
