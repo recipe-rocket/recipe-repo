@@ -70,12 +70,20 @@ let loadSearch = (request, response) => {
   // send API request
   superagent.get(url)
     .then(result => {
-      return result.body.meals.map(meal => {
-        return new Recipe(meal);
-      });
+      if (result.body.meals) {
+        return result.body.meals.map(meal => {
+          return new Recipe(meal);
+        });
+      } else {
+        return false;
+      }
     })
     .then(results => {
-      response.render('pages/search', {recipes: results, title: `Search Results: ${query}`});
+      if (!results) {
+        response.render('pages/noresults');
+      } else {
+        response.render('pages/search', {recipes: results, title: `Search Results: ${query}`});
+      }
     })
     .catch((error) => errorMessage(error, response));
 };
