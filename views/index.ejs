@@ -7,6 +7,20 @@
   <%- include('./partials/title') %>
 
   <main class="search-view-main">
+    
+  <div id="mySidenav" class="sidenav">
+      <a id="closebtn">&times;</a>
+      <h2 id="cookbookTitle">Cookbooks</h2>
+      <% name.forEach(recipe => { %>
+      <a id="cookbookNameColor" href="/cookbook/<%-`${recipe.id}`%>"><%= recipe.namecookbook %></a>
+      <% }) %>
+
+    </div>
+    <section id="detailBtns">
+      <span id="openBtn" style="font-size:30px;cursor:pointer"><img src="/styles/icons/books.svg"></span>
+      <h2>Recipes Shown: <%- recipes.length %></h2>
+    </section>
+
       <% recipes.forEach(recipe => { %>
         <section class="recipe">
           <%- include('./partials/recipe', {recipes: recipe}) %>
@@ -19,5 +33,10 @@
     </main>
     <%- include('./partials/up_button') %>
     <%- include('./partials/footer') %>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

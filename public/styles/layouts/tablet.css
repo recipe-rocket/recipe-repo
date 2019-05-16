@@ -244,6 +244,12 @@
     display: flex;
     justify-content: space-between;
   }
+
+  #detailBtns h2 {
+    margin-right: 15px;
+    font-size: 1.75em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
   
   #ingredientsList {
     list-style-type: disc;

@@ -195,7 +195,7 @@
   
   #saveBtn {
     background-color: #499FA4;
-    width: 25%;
+    width: 15%;
     height: 82%;
     margin-bottom: 7px;
     margin-left: 7px;
@@ -244,6 +244,13 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+  }
+
+  #detailBtns h2 {
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   #ingredientsList {
@@ -328,7 +335,7 @@
   
   footer {
     width: 100%;
-    height: 20px;
+    height: 40px;
     position: fixed;
     bottom: 0;
     background-color: #ec926f;

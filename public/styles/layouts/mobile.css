@@ -244,6 +244,13 @@ p {
   justify-content: space-between;
 }
 
+#detailBtns h2 {
+  margin-top: 10px;
+  margin-right: 15px;
+  font-size: 1.25em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #ingredientsList {
   list-style-type: disc;
   margin: 10px 10px 10px 30px;
