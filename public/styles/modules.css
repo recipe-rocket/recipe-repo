@@ -1,3 +1,324 @@
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-view-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.recipe {
+  background-color: #f0e5eb;
+  box-shadow: 0px 2px 9px #C7AEA5; 
+  margin-top: 25px;
+  align-self: center;
+}
+
+.recipe-data {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.recipe-data img {
+  margin-right: 10px;
+  margin-left: 7px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.recipe-data article h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-right: 7px;
+  line-height: 110%;
+}
+
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 120%;
+  margin-right: 7px;
+}
+
+.indexButtons{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+#indexDetailBtn{
+  background-color: #499FA4;
+  width: 94%;
+  height: 82%;
+  margin-bottom: 7px;
+  margin-left: 7px;
+  color: white;
+}
+
+  
+/* Inspired by w3 Schools - https://www.w3schools.com/howto/howto_js_sidenav.asp */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #499fa4;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav form {
+  margin-left: 25px;
+}
+
+.sidenav form label {
+  color: white;
+}
+
+.sidenav form input {
+  width: 85%;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#instructions, #ingredients {
+  height: 100px;
+  width: 85%;
+  max-height: 150px;
+  max-width: 85%;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+#deleteRecipe, #updateRecipe {
+  width: 50%;
+  height: 35px;
+  color: white;
+  background-color: #f3616d;
+  margin-top: 15px;
+  outline: none;
+  border: none;
+}
+
+#deleteRecipe {
+  margin-top: 85px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav #closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color:white;
+} 
+
+.youTube {
+  width: 89%;
+  height: 70%; 
+}
+
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  padding-top: 5px;
+  background-color: #c7aea5;
+  align-items: center;
+  height: 50px; 
+}
+
+.navBar form {
+  display:flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.navBar form button {
+  background-color: #c7aea5;
+  border: none;
+  outline: none;
+}
+
+.navBar form input {
+  background-color: #f8f9f9;
+  outline: none;
+  border: none;
+}
+
+
+.navBar form a img {
+  margin-top: -5px;
+  margin-left: 25px;
+}
+
+#saveForm {
+  display: flex;
+}
+
+#saveBtn {
+  background-color: #499FA4;
+  height: 82%;
+  margin-bottom: 7px;
+  margin-left: 7px;
+  color: white;
+}
+
+#recipeSection {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#recipeSection h2 {
+  font-weight: bold;
+  align-self: center;
+}
+
+#recipeSection h3 {
+  font-weight: bold;
+  align-self: center;
+  margin-top: 6px;
+}
+
+#recipeSection img {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  height: auto;
+  align-self: center;
+}
+
+#detailBtns {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#detailBtns h2 {
+  margin-right: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#ingredientsList {
+  list-style-type: disc;
+  margin: 10px 10px 10px 30px;
+  align-self: center;
+  column-count: 2;
+}
+
+#ingredientsList li {
+  margin-top: 8px;
+}
+
+#recipeSection p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 140%;
+}
+
+header {
+  background-color: #ec926f;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 65px;
+}
+
+header img {
+  margin-left: 25px;
+}
+
+header h1 {
+  margin-left: 35px;
+}
+
+#upButton {
+  height: auto;
+  margin-top: 25px;
+  margin-left: 85%;
+  margin-bottom: 55px;
+}
+
+#upSection {
+  height: auto;
+}
+
+.biography figure {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.biography figure img {
+  align-self: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: auto;
+}
+
+figcaption {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.octocat, .linkedin{
+  width: 45px;
+  height: 45px;
+}
+
+footer {
+  width: 100%;
+  height: 20px;
+  position: fixed;
+  bottom: 0;
+  background-color: #ec926f;
+  text-align: center;
+  padding-top: 5px;
+}
+
+footer p {
+  display: inline;
+}
+
+#noResults{
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: darkred;
+  margin-top: 100px;
+}
+
 #cookbookNameColor {
   color: black;
 }
