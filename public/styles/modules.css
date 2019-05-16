@@ -223,7 +223,101 @@ p {
   justify-content: space-between;
 }
 
+#detailBtns h2 {
+  margin-right: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+#ingredientsList {
+  list-style-type: disc;
+  margin: 10px 10px 10px 30px;
+  align-self: center;
+  column-count: 2;
+}
+
+#ingredientsList li {
+  margin-top: 8px;
+}
+
+#recipeSection p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 140%;
+}
+
+header {
+  background-color: #ec926f;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 65px;
+}
+
+header img {
+  margin-left: 25px;
+}
+
+header h1 {
+  margin-left: 35px;
+}
+
+#upButton {
+  height: auto;
+  margin-top: 25px;
+  margin-left: 85%;
+  margin-bottom: 55px;
+}
+
+#upSection {
+  height: auto;
+}
+
+.biography figure {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.biography figure img {
+  align-self: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: auto;
+}
+
+figcaption {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.octocat, .linkedin{
+  width: 45px;
+  height: 45px;
+}
+
+footer {
+  width: 100%;
+  height: 20px;
+  position: fixed;
+  bottom: 0;
+  background-color: #ec926f;
+  text-align: center;
+  padding-top: 5px;
+}
+
+footer p {
+  display: inline;
+}
+
+#noResults{
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: darkred;
+  margin-top: 100px;
+}
 
 #cookbookNameColor {
   color: black;
