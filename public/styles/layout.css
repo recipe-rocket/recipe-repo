@@ -1,3 +1,8 @@
+@import url('./layouts/mobile.css');
+@import url('./layouts/tablet.css');
+@import url('./layouts/desktop.css');
+
+
 h1 {
   font-family: 'Averia Serif Libre', cursive;
   font-size: 2em;
@@ -10,3 +15,4 @@ h1 {
   padding-top: .7em;
   padding-bottom: .7em;
 }
+

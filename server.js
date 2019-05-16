@@ -59,8 +59,14 @@ let loadHome = (request, response) => {
 
   return client.query(SQL)
     .then(results => {
-      response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad'});
-    });
+      let SQL1 = 'SELECT * FROM cookbooks;';
+      client.query(SQL1)
+        .then(names => {
+          response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad', name: names.rows});
+        })
+        .catch((error) => errorMessage(error, response));
+    })
+    .catch((error) => errorMessage(error, response));
 };
 
 let loadSearch = (request, response) => {
@@ -70,12 +76,20 @@ let loadSearch = (request, response) => {
   // send API request
   superagent.get(url)
     .then(result => {
-      return result.body.meals.map(meal => {
-        return new Recipe(meal);
-      });
+      if (result.body.meals) {
+        return result.body.meals.map(meal => {
+          return new Recipe(meal);
+        });
+      } else {
+        return false;
+      }
     })
     .then(results => {
-      response.render('pages/search', {recipes: results, title: `Search Results: ${query}`});
+      if (!results) {
+        response.render('pages/noresults');
+      } else {
+        response.render('pages/search', {recipes: results, title: `Search Results: ${query}`});
+      }
     })
     .catch((error) => errorMessage(error, response));
 };
@@ -85,29 +99,40 @@ let saveRecipe = (request, response) => {
   let SQL1 = 'INSERT INTO cookbooks(nameCookbook) VALUES ($1) RETURNING id;';
   let values1 = [cookbook];
 
-  client.query(SQL1, values1)
-    .then(result => {
-      let id = result.rows[0].id;
-      let SQL2 = 'INSERT INTO recipes(name, instructions, ingredients, image, youtubeLink, cookbooks_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;';
-      let values2 = [name, instructions, ingredients, image, youtubeLink, id];
+  let SQL3 = `SELECT * FROM cookbooks WHERE cookbooks.nameCookbook=$1;`;
+  let values3 = [cookbook];
 
-      return client.query(SQL2, values2);
+  return client.query(SQL3, values3)
+    .then(exists => {
+      if (!exists.rows.length || exists.rows.length === 0) {
+        return client.query(SQL1, values1)
+          .then(result => {
+            return result.rows[0].id;
+          });
+      } else {
+        return exists.rows[0].id;
+      }
     })
-    .then (result => {
-      response.redirect(`/detail/${result.rows[0].id}`);
-    })
-    .catch((error) => errorMessage(error, response));
+    .then(result => {
+      let SQL2 = 'INSERT INTO recipes(name, instructions, ingredients, image, youtubeLink, cookbooks_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;';
+      let values2 = [name, instructions, ingredients, image, youtubeLink, result];
+
+      return client.query(SQL2, values2)
+        .then (result => {
+          response.redirect(`/detail/${result.rows[0].id}`);
+        })
+        .catch((error) => errorMessage(error, response));
+    });
 };
 
 let renderDetail = (request, response) => {
   let SQL = 'SELECT * FROM recipes JOIN cookbooks ON cookbooks.id=recipes.cookbooks_id WHERE recipes.id=$1;';
-
   let values = [request.params.id];
 
   return client.query(SQL, values)
     .then(results => {
       let ingredients = results.rows[0].ingredients.split(',');
-      response.render('pages/detail', {recipes: results.rows, ingredients: ingredients, title: `Details: ${results.rows[0].name}`});
+      response.render('pages/detail', {recipes: results.rows, ingredients: ingredients, title: `Details: ${results.rows[0].name}`, id: values[0]});
     })
     .catch((error) => errorMessage(error, response));
 };
@@ -117,18 +142,33 @@ let loadAbout = (request, response) => {
 };
 
 let updateDetail = (request, response) => {
-  let {name, instructions, ingredients, cookbook, cookbookID} = request.body;
-  let SQL1 = 'UPDATE cookbooks SET nameCookbook=$1 WHERE id=$2;';
-  let values1 = [cookbook, cookbookID];
-  return client.query(SQL1, values1)
-    .then(() => {
-      let SQL = 'UPDATE recipes SET name=$1, instructions=$2, ingredients=$3, cookbooks_id=$4 WHERE id=$5;';
-      let values = [name, instructions, ingredients, cookbookID, request.params.id];
+  let {name, instructions, ingredients, cookbook} = request.body;
 
-      return client.query(SQL, values);
+  let SQL2 = 'INSERT INTO cookbooks(nameCookbook) VALUES ($1) RETURNING id;';
+  let values2 = [cookbook];
+
+  let SQL3 = `SELECT * FROM cookbooks WHERE cookbooks.nameCookbook=$1;`;
+  let values3 = [cookbook];
+
+  return client.query(SQL3, values3)
+    .then(exists => {
+      if (exists.rows.length > 0) {
+        return exists.rows[0].id;
+      } else {
+        return client.query(SQL2, values2)
+          .then(result => {
+            return result.rows[0].id;
+          });
+      }
     })
-    .then(() => {
-      response.redirect(`/detail/${request.params.id}`);
+    .then(result => {
+      let SQL = 'UPDATE recipes SET name=$1, instructions=$2, ingredients=$3, cookbooks_id=$4 WHERE id=$5;';
+      let values = [name, instructions, ingredients, result, request.params.id];
+      return client.query(SQL, values)
+        .then(() => {
+          response.redirect(`/detail/${request.params.id}`);
+        })
+        .catch((error) => errorMessage(error, response));
     })
     .catch((error) => errorMessage(error, response));
 };
@@ -136,7 +176,6 @@ let updateDetail = (request, response) => {
 let deleteRecipe = (request, response) => {
   let SQL = 'DELETE FROM recipes WHERE id=$1;';
   let values = [request.params.id];
-
 
   return client.query(SQL, values)
     .then(() => {
@@ -149,6 +188,21 @@ let deleteRecipe = (request, response) => {
     });
 };
 
+let cookbookView = (request, response) => {
+  let SQL = 'SELECT * FROM recipes WHERE cookbooks_id=$1;';
+  let values = [request.params.id];
+  return client.query(SQL, values)
+    .then(results => {
+      let SQL1 = 'SELECT * FROM cookbooks;';
+      client.query(SQL1)
+        .then(names => {
+          response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad', name: names.rows, id: values[0]});
+        })
+        .catch((error) => errorMessage(error, response));
+    })
+    .catch((error) => errorMessage(error, response));
+};
+
 //Routes
 app.get('/', loadHome);
 app.get('/search', loadSearch);
@@ -157,6 +211,7 @@ app.put('/update/:id', updateDetail);
 app.delete('/delete/:id', deleteRecipe);
 app.post('/save', saveRecipe);
 app.get('/about', loadAbout);
+app.get('/cookbook/:id', cookbookView);
 
 
 // Error Catcher

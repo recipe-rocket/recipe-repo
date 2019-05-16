@@ -12,8 +12,6 @@
 }
 
 .recipe {
-  width: 100%;
-  height: auto;
   background-color: #f0e5eb;
   box-shadow: 0px 2px 9px #C7AEA5; 
   margin-top: 25px;
@@ -27,8 +25,6 @@
 }
 
 .recipe-data img {
-  width: 25%;
-  height: 25%;
   margin-right: 10px;
   margin-left: 7px;
   margin-top: 7px;
@@ -37,7 +33,6 @@
 }
 
 .recipe-data article h2 {
-  font-size: 1.25em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -46,7 +41,6 @@
 }
 
 p {
-  font-size: .8em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 120%;
   margin-right: 7px;
@@ -69,15 +63,7 @@ p {
   color: white;
 }
 
-.hidden {
-  display:none;
-}
-
-.youTube {
-  width: 89%;
-  height: 70%; 
-}
-
+  
 /* Inspired by w3 Schools - https://www.w3schools.com/howto/howto_js_sidenav.asp */
 .sidenav {
   height: 100%;
@@ -150,7 +136,13 @@ p {
   font-size: 36px;
   margin-left: 50px;
   color:white;
+} 
+
+.youTube {
+  width: 89%;
+  height: 70%; 
 }
+
 
 .navBar {
   display: flex;
@@ -176,11 +168,12 @@ p {
 }
 
 .navBar form input {
-  height: 1.5em;
   background-color: #f8f9f9;
+  height: 27px;
   outline: none;
   border: none;
 }
+
 
 .navBar form a img {
   margin-top: -5px;
@@ -193,7 +186,6 @@ p {
 
 #saveBtn {
   background-color: #499FA4;
-  width: 25%;
   height: 82%;
   margin-bottom: 7px;
   margin-left: 7px;
@@ -209,33 +201,21 @@ p {
 }
 
 #recipeSection h2 {
-  font-size: 1.5em;
   font-weight: bold;
   align-self: center;
 }
 
 #recipeSection h3 {
-  font-size: 1.25em;
   font-weight: bold;
   align-self: center;
   margin-top: 6px;
 }
 
 #recipeSection img {
-  width: 90%;
   margin-top: 8px;
   margin-bottom: 8px;
   height: auto;
   align-self: center;
-}
-
-#youtube {
-  width: 80%;
-  height: auto;
-}
-
-#openBtn {
-  margin-left: 15px;
 }
 
 #detailBtns {
@@ -244,12 +224,16 @@ p {
   justify-content: space-between;
 }
 
+#detailBtns h2 {
+  margin-right: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #ingredientsList {
   list-style-type: disc;
   margin: 10px 10px 10px 30px;
   align-self: center;
   column-count: 2;
-  font-size: .9em;
 }
 
 #ingredientsList li {
@@ -257,8 +241,6 @@ p {
 }
 
 #recipeSection p {
-  margin: 10px 8px 10px 8px;
-  font-size: .9em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 140%;
 }
@@ -303,13 +285,6 @@ header h1 {
   margin-bottom: 15px;
   margin-top: 15px;
   width: auto;
-  height: 300px;
-}
-
-.biography figure p {
-  margin-right: 10px;
-  margin-left: 10px;
-  font-size: 18px;
 }
 
 figcaption {
@@ -326,7 +301,6 @@ figcaption {
 
 footer {
   width: 100%;
-  height: 20px;
   position: fixed;
   bottom: 0;
   background-color: #ec926f;
@@ -337,3 +311,26 @@ footer {
 footer p {
   display: inline;
 }
+
+#noResults{
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: darkred;
+  margin-top: 100px;
+}
+
+#cookbookNameColor {
+  color: black;
+}
+
+#cookbookNameColor:hover {
+  color: white;
+}
+
+#cookbookTitle {
+  margin-left: 32px;
+  color: black;
+  font-size: 30px;
+  text-decoration-line: underline;
+}
+

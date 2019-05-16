@@ -8,7 +8,7 @@
 
   <div id="mySidenav" class="sidenav">
       <a id="closebtn">&times;</a>
-      <form class="sideNavForm" action="/update/<%-`${recipes[0].id}`%>" method="post">
+      <form class="sideNavForm" action="/update/<%-`${id}`%>" method="post">
         <input type="hidden" name="_method" value="put">
         <label for="name">Recipe Name</label>
         <input id="name" class="sideForm" type="text" name="name" value="<%= recipes[0].name %>" required>
@@ -21,7 +21,7 @@
         <input type="hidden" type="text" name="cookbookID" value="<%= recipes[0].cookbooks_id %>">
         <button id="updateRecipe" type="submit">Update Recipe</button>
       </form>
-      <form class="sideNavFormDelete" action="/delete/<%-`${recipes[0].id}`%>" method="post">
+      <form class="sideNavFormDelete" action="/delete/<%-`${id}`%>" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="hidden" type="text" name="cookbookID" value="<%= recipes[0].cookbooks_id %>">
         <button id="deleteRecipe" type="submit">Delete Recipe</button>

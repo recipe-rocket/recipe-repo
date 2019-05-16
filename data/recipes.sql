@@ -16,3 +16,4 @@ CREATE TABLE recipes (
   cookbooks_id INTEGER NOT NULL,
   FOREIGN KEY (cookbooks_id) REFERENCES cookbooks (id)
 );
+

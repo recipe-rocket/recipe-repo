@@ -1,0 +1,85 @@
+@media(min-width: 450px){
+  
+  .recipe {
+    width: 90%;
+    height: auto;
+  }
+  
+  .recipe-data img {
+    width: 25%;
+    height: 25%;
+  }
+  
+  .recipe-data article h2 {
+    font-size: 1.5em;
+  }
+  
+  p {
+    font-size: 1em;
+  }
+  
+  .hidden {
+    display:none;
+  }
+  
+  
+  .navBar form input {
+    height: 2em;
+  }
+  
+  #saveBtn {
+    width: 25%;
+  }
+  
+  #recipeSection h2 {
+    font-size: 1.75em;
+  }
+  
+  #recipeSection h3 {
+    font-size: 1.5em;
+  }
+  
+  #recipeSection img {
+    width: 90%;
+  }
+  
+  #youtube {
+    width: 80%;
+    height: auto;
+  }
+  
+  #openBtn {
+    margin-left: 15px;
+  }
+
+  #detailBtns h2 {
+    font-size: 1.75em;
+  }
+  
+  #ingredientsList {
+    font-size: 1em;
+  }
+  
+  #recipeSection p {
+    margin: 10px 8px 10px 8px;
+    font-size: 1em;
+  }
+  
+  footer {
+    height: 25px;
+  }
+
+  .biography figure img {
+    height: 400px;
+  }
+  
+  .biography figure p {
+    margin-right: 35px;
+    margin-left: 35px;
+    font-size: 20px;
+  }
+ 
+  #noResults{
+    font-size: 4em;
+  }
+}
