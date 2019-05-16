@@ -25,7 +25,7 @@
         <section class="recipe">
           <%- include('./partials/recipe', {recipes: recipe}) %>
           <section class="indexButtons"> 
-          <a href="/detail/<%=recipe.id%>"><button id="indexDetailBtn">Show Details</button></a>
+          <a href="/detail/<%= recipe.id %>"><button id="indexDetailBtn">Show Details</button></a>
           <a href="<%= recipe.youtubelink %>"><img class="youTube" src="/styles/icons/youtube2.svg"></a>
           </section>
         </section>

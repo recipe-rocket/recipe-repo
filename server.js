@@ -55,7 +55,7 @@ function Recipe(data) {
 
 //Handlers
 let loadHome = (request, response) => {
-  let SQL = 'SELECT * FROM recipes JOIN cookbooks ON cookbooks.id=recipes.cookbooks_id;';
+  let SQL = 'SELECT * FROM recipes;';
 
   return client.query(SQL)
     .then(results => {
@@ -127,7 +127,6 @@ let saveRecipe = (request, response) => {
 
 let renderDetail = (request, response) => {
   let SQL = 'SELECT * FROM recipes JOIN cookbooks ON cookbooks.id=recipes.cookbooks_id WHERE recipes.id=$1;';
-
   let values = [request.params.id];
 
   return client.query(SQL, values)
@@ -177,7 +176,7 @@ let updateDetail = (request, response) => {
 let deleteRecipe = (request, response) => {
   let SQL = 'DELETE FROM recipes WHERE id=$1;';
   let values = [request.params.id];
-
+  console.log(values);
 
   return client.query(SQL, values)
     .then(() => {
@@ -193,14 +192,13 @@ let deleteRecipe = (request, response) => {
 let cookbookView = (request, response) => {
   let SQL = 'SELECT * FROM recipes WHERE cookbooks_id=$1;';
   let values = [request.params.id];
-  console.log('top')
+  console.log(values);
   return client.query(SQL, values)
     .then(results => {
       let SQL1 = 'SELECT * FROM cookbooks;';
       client.query(SQL1)
         .then(names => {
-          console.log(names);
-          response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad', name: names.rows});
+          response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad', name: names.rows, id: values[0]});
         })
         .catch((error) => errorMessage(error, response));
     })
