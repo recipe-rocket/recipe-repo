@@ -38,7 +38,7 @@
   }
   
   .recipe-data article h2 {
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 5px;
     margin-bottom: 10px;
@@ -47,7 +47,7 @@
   }
   
   p {
-    font-size: 1em;
+    font-size: 1.5em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 120%;
     margin-right: 7px;
@@ -177,7 +177,8 @@
   }
   
   .navBar form input {
-    height: 2em;
+    height: 2.25em;
+    width: 225px;
     background-color: #f8f9f9;
     outline: none;
     border: none;
@@ -210,20 +211,20 @@
   }
   
   #recipeSection h2 {
-    font-size: 1.75em;
+    font-size: 2em;
     font-weight: bold;
     align-self: center;
   }
   
   #recipeSection h3 {
-    font-size: 1.5em;
+    font-size: 1.75em;
     font-weight: bold;
     align-self: center;
     margin-top: 6px;
   }
   
   #recipeSection img {
-    width: 90%;
+    width: 80%;
     margin-top: 8px;
     margin-bottom: 8px;
     height: auto;
@@ -250,7 +251,7 @@
     margin: 10px 10px 10px 30px;
     align-self: center;
     column-count: 2;
-    font-size: 1em;
+    font-size: 1.2em;
   }
   
   #ingredientsList li {
@@ -258,8 +259,8 @@
   }
   
   #recipeSection p {
-    margin: 10px 8px 10px 8px;
-    font-size: 1em;
+    margin: 10px 38px 10px 38px;
+    font-size: 1.2em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 140%;
   }
@@ -308,9 +309,9 @@
   }
   
   .biography figure p {
-    margin-right: 35px;
-    margin-left: 35px;
-    font-size: 20px;
+    margin-right: 55px;
+    margin-left: 55px;
+    font-size: 22px;
   }
   
   figcaption {
@@ -339,4 +340,11 @@
     display: inline;
   }
   
+  #noResults{
+    text-align: center;
+    font-size: 5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: darkred;
+    margin-top: 100px;
+  }
 }

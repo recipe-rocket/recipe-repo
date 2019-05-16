@@ -338,5 +338,12 @@
   footer p {
     display: inline;
   }
-  
+ 
+  #noResults{
+    text-align: center;
+    font-size: 4em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: darkred;
+    margin-top: 100px;
+  }
 }
