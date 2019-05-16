@@ -79,8 +79,6 @@ let loadSearch = (request, response) => {
       }
     })
     .then(results => {
-      console.log('Render results');
-      console.log(results);
       if (!results) {
         response.render('pages/noresults');
       } else {
