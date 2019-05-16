@@ -176,7 +176,6 @@ let updateDetail = (request, response) => {
 let deleteRecipe = (request, response) => {
   let SQL = 'DELETE FROM recipes WHERE id=$1;';
   let values = [request.params.id];
-  console.log(values);
 
   return client.query(SQL, values)
     .then(() => {
@@ -192,7 +191,6 @@ let deleteRecipe = (request, response) => {
 let cookbookView = (request, response) => {
   let SQL = 'SELECT * FROM recipes WHERE cookbooks_id=$1;';
   let values = [request.params.id];
-  console.log(values);
   return client.query(SQL, values)
     .then(results => {
       let SQL1 = 'SELECT * FROM cookbooks;';
