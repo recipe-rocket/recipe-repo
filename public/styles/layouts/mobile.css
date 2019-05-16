@@ -66,6 +66,10 @@ p {
   font-size: .9em;
 }
 
+footer {
+  height: 20px;
+}
+
 .biography figure img {
   height: 300px;
 }

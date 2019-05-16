@@ -65,7 +65,11 @@
     margin: 10px 38px 10px 38px;
     font-size: 1.2em;
   }
-  
+
+  footer {
+    height: 35px;
+  }
+
   .biography figure img {
     height: 400px;
   }
