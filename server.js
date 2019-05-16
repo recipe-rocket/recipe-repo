@@ -56,10 +56,17 @@ function Recipe(data) {
 //Handlers
 let loadHome = (request, response) => {
   let SQL = 'SELECT * FROM recipes JOIN cookbooks ON cookbooks.id=recipes.cookbooks_id;';
+
   return client.query(SQL)
     .then(results => {
-      response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad'});
-    });
+      let SQL1 = 'SELECT * FROM cookbooks;';
+      client.query(SQL1)
+        .then(names => {
+          response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad', name: names.rows});
+        })
+        .catch((error) => errorMessage(error, response));
+    })
+    .catch((error) => errorMessage(error, response));
 };
 
 let loadSearch = (request, response) => {
@@ -183,6 +190,23 @@ let deleteRecipe = (request, response) => {
     });
 };
 
+let cookbookView = (request, response) => {
+  let SQL = 'SELECT * FROM recipes WHERE cookbooks_id=$1;';
+  let values = [request.params.id];
+  console.log('top')
+  return client.query(SQL, values)
+    .then(results => {
+      let SQL1 = 'SELECT * FROM cookbooks;';
+      client.query(SQL1)
+        .then(names => {
+          console.log(names);
+          response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad', name: names.rows});
+        })
+        .catch((error) => errorMessage(error, response));
+    })
+    .catch((error) => errorMessage(error, response));
+};
+
 //Routes
 app.get('/', loadHome);
 app.get('/search', loadSearch);
@@ -191,6 +215,7 @@ app.put('/update/:id', updateDetail);
 app.delete('/delete/:id', deleteRecipe);
 app.post('/save', saveRecipe);
 app.get('/about', loadAbout);
+app.get('/cookbook/:id', cookbookView);
 
 
 // Error Catcher
