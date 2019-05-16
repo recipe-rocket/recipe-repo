@@ -55,8 +55,7 @@ function Recipe(data) {
 
 //Handlers
 let loadHome = (request, response) => {
-  let SQL = 'SELECT * FROM recipes;';
-
+  let SQL = 'SELECT * FROM recipes JOIN cookbooks ON cookbooks.id=recipes.cookbooks_id;';
   return client.query(SQL)
     .then(results => {
       response.render('index', {recipes: results.rows, title: 'Cookbook Launchpad'});

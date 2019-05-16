@@ -10,7 +10,7 @@
     
   <div id="mySidenav" class="sidenav">
       <a id="closebtn">&times;</a>
-      <form class="sideNavForm" action="/update/<%-`${recipes[0].id}`%>" method="post">
+      <!-- <form class="sideNavForm" action="/update/<%-`${recipes[0].id}`%>" method="post">
         <input type="hidden" name="_method" value="put">
         <label for="name">Recipe Name</label>
         <input id="name" class="sideForm" type="text" name="name" value="<%= recipes[0].name %>" required>
@@ -22,16 +22,18 @@
         <input id="cookbook" class="sideForm" type="text" name="cookbook" value="<%= recipes[0].namecookbook %>" required>
         <input type="hidden" type="text" name="cookbookID" value="<%= recipes[0].cookbooks_id %>">
         <button id="updateRecipe" type="submit">Update Recipe</button>
-      </form>
+      </form> -->
+      <% recipes.forEach(recipe => { %>
+      <a href="#/<%= recipe.cookbooks_id %>"><%= recipe.namecookbook %></a>
+      <% }) %>
       <form class="sideNavFormDelete" action="/delete/<%-`${recipes[0].id}`%>" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="hidden" type="text" name="cookbookID" value="<%= recipes[0].cookbooks_id %>">
+        <input type="text" name="cookbookID" value="<%= recipes[0].cookbooks_id %>">
         <button id="deleteRecipe" type="submit">Delete Recipe</button>
       </form>
     </div>
     <section id="detailBtns">
       <span id="openBtn" style="font-size:30px;cursor:pointer"><img src="/styles/icons/books.svg"></span>
-      <a href="<%= recipes[0].youtubelink %>"><img id="youtube" src="/styles/icons/youtube2.svg"></a>
     </section>
       <% recipes.forEach(recipe => { %>
         <section class="recipe">
