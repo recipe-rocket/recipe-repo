@@ -10,15 +10,17 @@
     
   <div id="mySidenav" class="sidenav">
       <a id="closebtn">&times;</a>
-
+      <h2 id="cookbookTitle">Cookbooks</h2>
       <% name.forEach(recipe => { %>
-      <a href="/cookbook/<%-`${recipe.id}`%>"><%= recipe.namecookbook %></a>
+      <a id="cookbookNameColor" href="/cookbook/<%-`${recipe.id}`%>"><%= recipe.namecookbook %></a>
       <% }) %>
 
     </div>
     <section id="detailBtns">
       <span id="openBtn" style="font-size:30px;cursor:pointer"><img src="/styles/icons/books.svg"></span>
+      <h2>Recipes Shown: <%- recipes.length %></h2>
     </section>
+
       <% recipes.forEach(recipe => { %>
         <section class="recipe">
           <%- include('./partials/recipe', {recipes: recipe}) %>

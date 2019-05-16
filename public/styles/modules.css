@@ -1,0 +1,15 @@
+#cookbookNameColor {
+  color: black;
+}
+
+#cookbookNameColor:hover {
+  color: white;
+}
+
+#cookbookTitle {
+  margin-left: 32px;
+  color: black;
+  font-size: 30px;
+  text-decoration-line: underline;
+}
+
