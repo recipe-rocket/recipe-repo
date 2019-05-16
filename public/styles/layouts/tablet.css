@@ -65,6 +65,10 @@
     font-size: 1em;
   }
   
+  footer {
+    height: 25px;
+  }
+
   .biography figure img {
     height: 400px;
   }
